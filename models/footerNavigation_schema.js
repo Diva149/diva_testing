@@ -11,7 +11,7 @@ const mongoose = require('mongoose'),
         },
         parent: {
             type: Schema.Types.String,
-            ref: 'navigation'
+            ref: 'footerNavigation_schema'
         },
         nav_rel_type: {
             type: String,

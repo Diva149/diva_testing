@@ -1,0 +1,23 @@
+<!-- <footer class ="footer" id="footer" role="contentinfo">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2">
+                <p>Footer aPP</p>
+            </div>
+        </div>
+    </div>
+</footer> -->
+<p>test</p>
+<script>
+    $(document).ready(function() {
+        $.get('http://localhost:4093/primaryFooter', (req, res) => {
+            console.log("res", req);
+            for(var i = 0; i < req.length; i++) {
+                if(req[i].parent === 'courses') {
+                    console.log("parent course ------> ", req[i].title);
+                }
+            }
+        });
+    });
+    
+</script>

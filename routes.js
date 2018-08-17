@@ -15,6 +15,6 @@ const navigationFooterController = require('./controllers/navigationFooterContro
     router.route('/homepageFooterNav').post(homepageFooterController.checkUrl);
         
     router.route('/api').get((req, res) => {
-        res.sendFile(path.join(`${__dirname}/footer_test/footerIndex.html`));
+        res.sendFile(path.join(`${__dirname}/footer_test/footer_ui.html`));
     });
  }

@@ -89,7 +89,7 @@ module.exports = {
                 });
             }
             res.send(primeFooter);
-            console.log("navigationFooterController", primeFooter[0].title);
+            // console.log("navigationFooterController", primeFooter[0].title);
         }).catch(err => {
             if(err) {
                 console.log(err);
