@@ -1,0 +1,31 @@
+{
+  "name": "footer_test",
+  "version": "1.0.0",
+  "description": "For practice purpose",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Diva149/diva_testing.git"
+  },
+  "keywords": [
+    "mongodb",
+    "nodejs",
+    "npm",
+    "nodemon"
+  ],
+  "author": "Divya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Diva149/diva_testing/issues"
+  },
+  "homepage": "https://github.com/Diva149/diva_testing#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.8"
+  }
+}

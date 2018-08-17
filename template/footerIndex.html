@@ -1,0 +1,34 @@
+<footer class ="footer" id="footer" role="contentinfo">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2">
+                <p>Footer aPP</p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script>
+    $.get('/primaryFooter', (req, res) => {
+        console.log("res", res);
+    });
+</script>
+
+                        <!-- <script>
+                            $(document).ready(function () {
+                                $.get('http://localhost:4093/primaryFooter', (req, res) => {
+                                    if(res === 'success') {
+                                        console.log("herfreyteetr",res)
+                                        console.log("here length", req.length);
+                                        for (var i = 0; i < req.length; i++) {
+
+                                             if(req[i].nav_rel_type === 'Parent') {
+                                            //  $('#mainfooter').append('<ui id="menuId-'+req[i]._id+'">'+req[i].name+'</li>');
+                                                console.log("req", req[i].title);
+                                             
+                                          }
+                        
+                                        }
+                                    }
+                                });
+                            });
+                        </script> -->
