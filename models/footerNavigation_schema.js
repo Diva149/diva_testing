@@ -20,6 +20,12 @@ const mongoose = require('mongoose'),
         title: {
             type: String,
             required: true
+        },
+        position: {
+            type: Number
+        },
+        level: {
+            type: Number
         }
     });
 

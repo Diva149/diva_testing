@@ -9,10 +9,10 @@ const navigationFooterController = require('./controllers/navigationFooterContro
     router.route('/deleteMenu/:menuId').delete(navigationFooterController.deleteMenu);
         
     // endpoint calling from HTML/index.html file to render the HTML to front end
-    router.route('/primaryFooter').get(navigationFooterController.primaryFooter);
+   // router.route('/primaryFooter').get(navigationFooterController.primaryFooter);
     
     // endpoint calling from frontend
-    router.route('/homepageFooterNav').post(homepageFooterController.checkUrl);
+    router.route('/foot').get(homepageFooterController.foot);
         
     router.route('/api').get((req, res) => {
         res.sendFile(path.join(`${__dirname}/footer_test/footer_ui.html`));

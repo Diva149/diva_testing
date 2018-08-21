@@ -5,7 +5,7 @@ const navigationMenu = require('../models/footerNavigation_schema.js');
 module.exports = {
     createMenu(req, res) {
         // Document to be added to the database
-        const createMenuBody = new navigationMenu({'name': req.body.name,'navigation_url':req.body.navigation_url,'parent':req.body.parent,'nav_rel_type':req.body.nav_rel_type,'title': req.body.title});
+        const createMenuBody = new navigationMenu({'name': req.body.name,'navigation_url':req.body.navigation_url,'parent':req.body.parent,'nav_rel_type':req.body.nav_rel_type,'title': req.body.title,'position': req.body.position,'level': req.body.level});
         console.log('MenuBody', createMenuBody);
         // check if the data received is null or not
         if(!createMenuBody.name ||!createMenuBody.title) {
@@ -39,7 +39,9 @@ module.exports = {
                 name: updateMenuBody.name,
                 navigation_url: updateMenuBody.navigation_url,
                 parent: updateMenuBody.parent,
-                title: updateMenuBody.title
+                title: updateMenuBody.title,
+                position: updateMenuBody.position,
+                level: updateMenuBody.level
             }, {new: true}).then(menu => {
                 if(!menu) {
                     res.writeHead(404, {
@@ -80,20 +82,5 @@ module.exports = {
             }
             res.status(500).send({message: 'Error deleting the menu'});
         })
-    },
-    primaryFooter(req, res) {
-        navigationMenu.find().then(primeFooter => {
-            if(!primeFooter) {
-                res.status(404).send({
-                    message: "There is no Primary"
-                });
-            }
-            res.send(primeFooter);
-            // console.log("navigationFooterController", primeFooter[0].title);
-        }).catch(err => {
-            if(err) {
-                console.log(err);
-            }
-        });
     }
 }
