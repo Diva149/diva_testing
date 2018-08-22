@@ -130,7 +130,7 @@
         <script>
             $(document).ready(function() {
                 console.log('Inside the footer html file for the UI End part');
-                $.get("http://localhost:4093/foot",null, (req, res) => {
+                $.get("http://localhost:4093/api/foot",null, (req, res) => {
                     if(res === 'success') {
                         $('body').append(req);
                         console.log("UI", req);
