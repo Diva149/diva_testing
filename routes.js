@@ -12,9 +12,9 @@ const navigationFooterController = require('./controllers/navigationFooterContro
    // router.route('/primaryFooter').get(navigationFooterController.primaryFooter);
     
     // endpoint calling from frontend
-    router.route('/foot').get(homepageFooterController.foot);
+    router.route('/footer').get(homepageFooterController.footer);
         
-    router.route('/api').get((req, res) => {
+    router.route('/').get((req, res) => {
         res.sendFile(path.join(`${__dirname}/footer_test/footer_ui.html`));
     });
  }

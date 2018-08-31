@@ -5,7 +5,7 @@ const navigationMenu = require('../models/footerNavigation_schema.js');
 module.exports = {
     createMenu(req, res) {
         // Document to be added to the database
-        const createMenuBody = new navigationMenu({'name': req.body.name,'navigation_url':req.body.navigation_url,'parent':req.body.parent,'nav_rel_type':req.body.nav_rel_type,'title': req.body.title,'position': req.body.position,'level': req.body.level});
+        const createMenuBody = new navigationMenu(req.body);
         console.log('MenuBody', createMenuBody);
         // check if the data received is null or not
         if(!createMenuBody.name ||!createMenuBody.title) {
@@ -41,7 +41,8 @@ module.exports = {
                 parent: updateMenuBody.parent,
                 title: updateMenuBody.title,
                 position: updateMenuBody.position,
-                level: updateMenuBody.level
+                level: updateMenuBody.level,
+                submenu: updateMenuBody.submenu
             }, {new: true}).then(menu => {
                 if(!menu) {
                     res.writeHead(404, {

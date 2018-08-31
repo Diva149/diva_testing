@@ -26,7 +26,8 @@ const mongoose = require('mongoose'),
         },
         level: {
             type: Number
-        }
+        },
+        submenu: Array
     });
 
     module.exports = mongoose.model('footerv1.0',footerNavigation_schema);

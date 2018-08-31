@@ -5,6 +5,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
         <style type="text/css">
       
@@ -14,8 +15,15 @@
           list-style-type: none
       }
       
+      .footer a {
+          color: white;
+          padding: 10px 0px;
+          display: inline-block;
+          font-size: 12px;
+      }
+      
       .footer a:hover {
-          color: #0056b3;
+          color: white;
           text-decoration: underline
       }
       
@@ -26,8 +34,14 @@
           font-stretch: normal;
           color: #fff
       }
-      
-      .footer {
+
+      .footer .col-header {
+          color: white;
+          list-style: none;
+          font-weight: 600
+      }
+
+      .footer-nav {
           background: #474747!important;
           padding: 20px 0;
           margin-top: 50px
@@ -37,6 +51,7 @@
           font-weight: 700;
           letter-spacing: 3.2px;
           text-transform: uppercase;
+          color: white;
           text-align: left
       }
       
@@ -65,7 +80,6 @@
           text-align: right
       }
       
-      
       @media (max-width:768px) {
           .footer .mt-xs-3 {
               margin-top: 30px
@@ -91,19 +105,15 @@
           }
       }
       
-      
       </style>
       <title>Footer</title>
       </head>
 <body>
     <div class="footer-nav"></div>
-        <p>Footer file in UI</p>
         <script>
             $(document).ready(function() {
                 console.log('Inside the footer html file for the UI End part');
-                $.post("http://localhost:4093/homepageFooterNav",{
-                    url: window.location.href
-                }, (req, res) => {
+                $.get("http://localhost:4093/footer", (req, res) => {
                     if(res === 'success') {
                         $('.footer-nav').append(req);
                         console.log("UI", req);

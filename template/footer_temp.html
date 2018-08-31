@@ -1,23 +1,69 @@
-<!-- <footer class ="footer" id="footer" role="contentinfo">
+<footer class="footer">
     <div class="container">
+        <div id= "footer" class="row">
+        </div>
+        
+        <div style="opacity: 0.6; background-color: #979797;height: 1px;width: 100%;margin-bottom:10px;"></div>
+        
         <div class="row">
-            <div class="col-sm-2">
-                <p>Footer aPP</p>
+            <div class='col-sm-3'>
+                <p>Follow Us</p>
+                <a href="https://www.facebook.com/byjuslearningapp/" target="_blank" class="links"><img style="width: 9%;" src="https://s3-ap-southeast-1.amazonaws.com/subscriber.images/byjus-clone/wp-content/uploads/2016/12/27081535/i-c-facebook-compressor.png"></a>
+                <a href="https://twitter.com/byjusclasses" target="_blank" class="links"><img style="width: 18%;" src="https://s3-ap-southeast-1.amazonaws.com/subscriber.images/byjus-clone/wp-content/uploads/2016/12/27081642/i-c-twitter-compressor.png"></a>
+                <a href="https://www.linkedin.com/company/think-&amp;-learn-pvt-ltd" target="_blank" class="links"><img style="width: 18%;" src="https://s3-ap-southeast-1.amazonaws.com/subscriber.images/byjus-clone/wp-content/uploads/2016/12/27081055/i-c-linkedin-compressor.png"></a>
             </div>
+
+          <div class="row  ft-bt-links">
+            <div class='col-sm-6'>
+                <a href="https://byjus.com/disclaimer">Disclaimer</a> &nbsp;|&nbsp;
+                <a href="https://byjus.com/privacy-policy">Privacy Policy</a> &nbsp;|&nbsp;
+                <a href="https://byjus.com/terms-of-services">Terms of Services</a> &nbsp;|&nbsp;
+                <a href="https://byjus.com/sitemap.xml">Sitemap</a>
+            </div>
+            <div class='col-sm-3'>
+                &copy;&nbsp;2018, BYJU'S. All rights reserved.
+            </div>
+          </div>
         </div>
     </div>
-</footer> -->
-<p>test</p>
+</footer>
+
 <script>
     $(document).ready(function() {
         $.get('http://localhost:4093/primaryFooter', (req, res) => {
             console.log("res", req);
             for(var i = 0; i < req.length; i++) {
-                if(req[i].parent === 'courses') {
-                    console.log("parent course ------> ", req[i].title);
+                if(req[i].parent === null && req[i].name !== 'exam_preparation') {
+                    $('#footer').append('<div class="col-sm-2"><ul id="'+req[i].name+'"><li class="col-header">'+req[i].title+'</li></ul></div>');
+                }
+
+                 if(req[i].parent === null && req[i].name === 'exam_preparation') {
+                     $('#footer').append('<div class="col-sm-3"><ul id="'+req[i].name+'"><li class="col-header">'+req[i].title+'</li></ul></div>');
+                 }
+
+                if(req[i].parent === "courses") {
+                   $('#'+req[i].parent).append('<li id="'+req[i].name+'"><a href="'+req[i].navigation_url+'">'+req[i].title+'</a></li>');
+                }
+                
+                if(req[i].parent === "exams") {
+                   $('#'+req[i].parent).append('<li id="'+req[i].name+'"><a href="'+req[i].navigation_url+'">'+req[i].title+'</a></li>');
+                }
+
+                if(req[i].parent === "resources") {
+                   $('#'+req[i].parent).append('<li id="'+req[i].name+'"><a href="'+req[i].navigation_url+'">'+req[i].title+'</a></li>');
+                }
+
+                if(req[i].parent === "exam_preparation") {
+                   $('#'+req[i].parent).append('<li id="'+req[i].name+'"><a href="'+req[i].navigation_url+'">'+req[i].title+'</a></li>');
+                }
+
+                if(req[i].parent === "company") {
+                   $('#'+req[i].parent).append('<li id="'+req[i].name+'"><a href="'+req[i].navigation_url+'">'+req[i].title+'</a></li>');
                 }
             }
+
+            
         });
     });
-    
+
 </script>
