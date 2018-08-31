@@ -1,6 +1,6 @@
-const navigationFooterController = require('./controllers/navigationFooterController'),
-    homepageFooterController = require('./controllers/homepageFooterController.js'),
-    path = require('path');
+const express = require('express'),
+router = express.Router(),
+path = require('path');
 
  exports.init = (router) => {
 

@@ -127,3 +127,4 @@ console.log('test',test());
     
     }
 
+module.exports = router;

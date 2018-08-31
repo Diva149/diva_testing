@@ -18,9 +18,12 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
+const footUI = require('./routes')
+const crudController = require('./controllers/navigationFooterController');
+const footerRoute = require('./controllers/homepageFooterController');
 // Initialising the routes
-const router = express.Router();
-routes.init(router);
+// const router = express.Router();
+// routes.init(router);
 
 // CORS Request
 app.all('*', (req, res, next) => {
@@ -34,7 +37,9 @@ app.all('*', (req, res, next) => {
     next();
 });
 
-app.use('/', router);
+app.use('/', footUI);
+app.use('/api', crudController);
+app.use('/api', footerRoute);
 
 app.listen(envConfig.port);
 console.log(`Server started & Listening on PORT ${envConfig.port}`);
